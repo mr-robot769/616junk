@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>616 Junk — We Buy Junk Cars | Grand Rapids & West Michigan</title>
+<meta name="description" content="We buy junk cars, scrap vehicles, and unwanted trucks in Grand Rapids and West Michigan. Free tow, same-day cash. Call 616-XXX-XXXX.">
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Barlow+Condensed:wght@400;600;700;900&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --yellow: #F5C800;
+    --black: #0D0D0D;
+    --rust: #C94A1A;
+    --offwhite: #F2EFE8;
+    --mid: #666;
+    --card-bg: #161616;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--offwhite);
+    font-family: 'Barlow', sans-serif;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.4;
+  }
+
+  /* ---- NAV ---- */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    position: sticky;
+    top: 0;
+    background: rgba(13,13,13,0.92);
+    backdrop-filter: blur(8px);
+    z-index: 100;
+    animation: fadeDown 0.5s ease both;
+  }
+
+  .logo {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 26px;
+    letter-spacing: -0.01em;
+    color: var(--offwhite);
+  }
+
+  .logo span { color: var(--yellow); }
+
+  .nav-phone {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 22px;
+    color: var(--yellow);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: color 0.15s;
+  }
+
+  .nav-phone:hover { color: #fff; }
+
+  /* ---- HERO ---- */
+  .hero {
+    min-height: 92vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      -55deg,
+      transparent,
+      transparent 38px,
+      rgba(245,200,0,0.03) 38px,
+      rgba(245,200,0,0.03) 40px
+    );
+    pointer-events: none;
+  }
+
+  /* rust slash divider between cols */
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 50%;
+    width: 5px;
+    background: var(--rust);
+    transform: skewX(-4deg);
+    z-index: 1;
+  }
+
+  .hero-left {
+    padding: 80px 60px 80px 40px;
+    position: relative;
+    z-index: 2;
+    animation: fadeUp 0.7s 0.1s ease both;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 20px;
+  }
+
+  .hero-headline {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: clamp(52px, 6vw, 88px);
+    line-height: 0.92;
+    color: var(--offwhite);
+    margin-bottom: 24px;
+  }
+
+  .hero-headline .hl { color: var(--yellow); }
+
+  .hero-sub {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(16px, 2vw, 22px);
+    font-weight: 400;
+    color: rgba(242,239,232,0.55);
+    line-height: 1.5;
+    max-width: 420px;
+    margin-bottom: 36px;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--black);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 17px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 16px 36px;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: transform 0.15s, background 0.15s;
+  }
+
+  .btn-primary:hover { background: #fff; transform: translate(-2px,-3px); }
+
+  .btn-secondary {
+    display: inline-block;
+    border: 2px solid rgba(255,255,255,0.2);
+    color: var(--offwhite);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 14px 30px;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: border-color 0.15s, color 0.15s;
+  }
+
+  .btn-secondary:hover { border-color: var(--yellow); color: var(--yellow); }
+
+  /* ---- FORM SIDE ---- */
+  .hero-right {
+    padding: 60px 40px 60px 70px;
+    position: relative;
+    z-index: 2;
+    animation: fadeUp 0.7s 0.25s ease both;
+  }
+
+  .form-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-top: 4px solid var(--yellow);
+    padding: 40px 36px;
+    border-radius: 3px;
+  }
+
+  .form-title {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 28px;
+    color: var(--offwhite);
+    margin-bottom: 6px;
+  }
+
+  .form-sub {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px;
+    color: var(--mid);
+    margin-bottom: 28px;
+    letter-spacing: 0.05em;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .form-row.full { grid-template-columns: 1fr; }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .field label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--mid);
+  }
+
+  .field input,
+  .field select,
+  .field textarea {
+    background: #1E1E1E;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 2px;
+    color: var(--offwhite);
+    font-family: 'Barlow', sans-serif;
+    font-size: 15px;
+    padding: 11px 14px;
+    outline: none;
+    transition: border-color 0.15s;
+    width: 100%;
+    -webkit-appearance: none;
+  }
+
+  .field select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+    cursor: pointer;
+  }
+
+  .field select option { background: #1E1E1E; }
+
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus { border-color: var(--yellow); }
+
+  .field textarea { resize: vertical; min-height: 80px; }
+
+  .submit-btn {
+    width: 100%;
+    background: var(--rust);
+    color: #fff;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 18px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 18px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    margin-top: 16px;
+    transition: background 0.15s, transform 0.15s;
+  }
+
+  .submit-btn:hover { background: #e05520; transform: translateY(-2px); }
+
+  .form-disclaimer {
+    font-size: 11px;
+    color: rgba(255,255,255,0.2);
+    text-align: center;
+    margin-top: 12px;
+    line-height: 1.5;
+  }
+
+  /* success state */
+  .success-msg {
+    display: none;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .success-msg .check {
+    font-size: 48px;
+    margin-bottom: 16px;
+  }
+
+  .success-msg h3 {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 32px;
+    color: var(--yellow);
+    margin-bottom: 10px;
+  }
+
+  .success-msg p {
+    color: var(--mid);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* ---- TRUST STRIP ---- */
+  .trust-strip {
+    background: var(--yellow);
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    flex-wrap: wrap;
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 18px 36px;
+    border-right: 1px solid rgba(13,13,13,0.15);
+    color: var(--black);
+  }
+
+  .trust-item:last-child { border-right: none; }
+
+  .trust-icon { font-size: 20px; }
+
+  .trust-text {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* ---- HOW IT WORKS ---- */
+  .section {
+    padding: 90px 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 16px;
+  }
+
+  .section-heading {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: clamp(36px, 5vw, 60px);
+    color: var(--offwhite);
+    line-height: 1;
+    margin-bottom: 50px;
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1px;
+    background: rgba(255,255,255,0.06);
+  }
+
+  .step {
+    background: var(--black);
+    padding: 40px 32px;
+    position: relative;
+    transition: background 0.2s;
+  }
+
+  .step:hover { background: #131313; }
+
+  .step-num {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 72px;
+    line-height: 1;
+    color: rgba(245,200,0,0.1);
+    margin-bottom: 16px;
+  }
+
+  .step-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--offwhite);
+    margin-bottom: 10px;
+  }
+
+  .step-body {
+    font-size: 14px;
+    color: rgba(242,239,232,0.45);
+    line-height: 1.7;
+  }
+
+  /* arrow connector */
+  .step:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -16px;
+    top: 40px;
+    font-size: 22px;
+    color: var(--rust);
+    z-index: 2;
+  }
+
+  /* ---- WE BUY SECTION ---- */
+  .buy-section {
+    padding: 0 40px 90px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .buy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 10px;
+    margin-top: 40px;
+  }
+
+  .buy-tag {
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 18px 20px;
+    border-radius: 2px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: rgba(242,239,232,0.7);
+    letter-spacing: 0.05em;
+    transition: border-color 0.2s, color 0.2s;
+    text-align: center;
+  }
+
+  .buy-tag:hover { border-color: var(--yellow); color: var(--yellow); }
+
+  /* ---- SERVICE AREA ---- */
+  .area-section {
+    background: #111;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding: 80px 40px;
+  }
+
+  .area-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .area-cities {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 30px;
+  }
+
+  .city-pill {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    padding: 8px 16px;
+    border-radius: 2px;
+    color: rgba(242,239,232,0.6);
+  }
+
+  .area-right {
+    text-align: center;
+  }
+
+  .area-code-display {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: clamp(100px, 15vw, 180px);
+    line-height: 1;
+    color: rgba(245,200,0,0.12);
+    letter-spacing: -0.04em;
+    margin-bottom: 10px;
+  }
+
+  .area-code-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--mid);
+  }
+
+  /* ---- BOTTOM CTA ---- */
+  .bottom-cta {
+    background: var(--rust);
+    padding: 80px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bottom-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      -55deg,
+      transparent,
+      transparent 28px,
+      rgba(0,0,0,0.07) 28px,
+      rgba(0,0,0,0.07) 30px
+    );
+    pointer-events: none;
+  }
+
+  .bottom-cta h2 {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: clamp(40px, 7vw, 90px);
+    line-height: 0.9;
+    color: #fff;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .bottom-cta p {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 20px;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .btn-white {
+    display: inline-block;
+    background: #fff;
+    color: var(--rust);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 22px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 20px 52px;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: transform 0.15s;
+    position: relative;
+    z-index: 1;
+  }
+
+  .btn-white:hover { transform: translate(-2px,-3px); }
+
+  /* ---- FOOTER ---- */
+  footer {
+    padding: 28px 40px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  footer span {
+    font-size: 12px;
+    color: rgba(255,255,255,0.2);
+    font-family: 'Barlow Condensed', sans-serif;
+    letter-spacing: 0.1em;
+  }
+
+  /* ---- ANIMATIONS ---- */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ---- MOBILE ---- */
+  @media (max-width: 768px) {
+    nav { padding: 16px 20px; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero::before { display: none; }
+    .hero-left { padding: 50px 24px 30px; }
+    .hero-right { padding: 10px 24px 50px; }
+    .form-card { padding: 28px 20px; }
+    .form-row { grid-template-columns: 1fr; }
+    .trust-item { padding: 14px 20px; }
+    .section { padding: 60px 24px; }
+    .buy-section { padding: 0 24px 60px; }
+    .area-section { padding: 60px 24px; }
+    .area-inner { grid-template-columns: 1fr; gap: 30px; }
+    .area-right { display: none; }
+    .bottom-cta { padding: 60px 24px; }
+    footer { padding: 20px 24px; }
+    .step:not(:last-child)::after { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">616<span>JUNK</span></div>
+  <a class="nav-phone" href="tel:6168971500">616-897-1500</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+
+  <div class="hero-left">
+    <div class="hero-eyebrow">Grand Rapids &amp; West Michigan</div>
+    <h1 class="hero-headline">
+      We Buy<br>
+      <span class="hl">Junk Cars</span><br>
+      For Cash.
+    </h1>
+    <p class="hero-sub">Running or not. Any year, make, or model. Free tow included. We come to you — same day in most cases.</p>
+    <div class="hero-ctas">
+      <a class="btn-primary" href="tel:6168971500">Call Now</a>
+      <a class="btn-secondary" href="#quote">Get a Quote</a>
+    </div>
+  </div>
+
+  <div class="hero-right" id="quote">
+    <div class="form-card">
+      <div class="form-title">Get Your Offer</div>
+      <div class="form-sub">Takes 60 seconds &mdash; no obligation</div>
+
+      <div id="lead-form">
+        <div class="form-row">
+          <div class="field">
+            <label>Year</label>
+            <input type="text" placeholder="e.g. 2008" maxlength="4" id="f-year">
+          </div>
+          <div class="field">
+            <label>Make</label>
+            <input type="text" placeholder="e.g. Ford" id="f-make">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label>Model</label>
+            <input type="text" placeholder="e.g. F-150" id="f-model">
+          </div>
+          <div class="field">
+            <label>Condition</label>
+            <select id="f-condition">
+              <option value="">Select...</option>
+              <option>Runs &amp; drives</option>
+              <option>Runs, doesn't drive</option>
+              <option>Doesn't run</option>
+              <option>Major damage / parts</option>
+              <option>Flood / fire damage</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row full">
+          <div class="field">
+            <label>Your ZIP Code</label>
+            <input type="text" placeholder="e.g. 49503" maxlength="5" id="f-zip">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label>Your Name</label>
+            <input type="text" placeholder="First &amp; Last" id="f-name">
+          </div>
+          <div class="field">
+            <label>Phone</label>
+            <input type="tel" placeholder="616-XXX-XXXX" id="f-phone">
+          </div>
+        </div>
+
+        <button class="submit-btn" onclick="submitForm()">GET MY CASH OFFER →</button>
+        <p class="form-disclaimer">No spam. No obligation. We'll call or text you with an offer.</p>
+      </div>
+
+      <div class="success-msg" id="success-msg">
+        <div class="check">✅</div>
+        <h3>You're All Set.</h3>
+        <p>We got your info and we'll call or text you shortly with a cash offer. Have your title ready if you can find it — makes things faster.</p>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-item"><span class="trust-icon">💵</span><span class="trust-text">Cash on the Spot</span></div>
+  <div class="trust-item"><span class="trust-icon">🚛</span><span class="trust-text">Free Towing</span></div>
+  <div class="trust-item"><span class="trust-icon">⚡</span><span class="trust-text">Same-Day Pickup</span></div>
+  <div class="trust-item"><span class="trust-icon">📋</span><span class="trust-text">We Handle the Paperwork</span></div>
+  <div class="trust-item"><span class="trust-icon">🔩</span><span class="trust-text">Any Condition</span></div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="section">
+  <div class="section-label">The Process</div>
+  <div class="section-heading">Three Steps.<br>Done.</div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <div class="step-title">Tell Us About the Vehicle</div>
+      <p class="step-body">Fill out the form or call us. Year, make, model, condition — that's all we need to put a number together.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div class="step-title">Get a Cash Offer</div>
+      <p class="step-body">We'll call or text you fast with a real offer. No lowball games, no bait-and-switch when we show up.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <div class="step-title">We Pick It Up</div>
+      <p class="step-body">We come to you with a tow truck and cash. Sign the title over, get paid, and we haul it away. Done.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <div class="step-title">You Get Paid</div>
+      <p class="step-body">Cash in hand before the truck leaves your driveway. No checks, no waiting, no drama.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WE BUY -->
+<section class="buy-section">
+  <div class="section-label">What We Take</div>
+  <div class="section-heading">We Buy All Of It.</div>
+  <div class="buy-grid">
+    <div class="buy-tag">Cars &amp; Sedans</div>
+    <div class="buy-tag">Trucks &amp; SUVs</div>
+    <div class="buy-tag">Vans &amp; Minivans</div>
+    <div class="buy-tag">No Title</div>
+    <div class="buy-tag">High Mileage</div>
+    <div class="buy-tag">Flood Damage</div>
+    <div class="buy-tag">Fire Damage</div>
+    <div class="buy-tag">Wrecked / T-Boned</div>
+    <div class="buy-tag">Blown Engine</div>
+    <div class="buy-tag">Bad Transmission</div>
+    <div class="buy-tag">Diesel Trucks</div>
+    <div class="buy-tag">Scrap Metal</div>
+  </div>
+</section>
+
+<!-- SERVICE AREA -->
+<section class="area-section">
+  <div class="area-inner">
+    <div>
+      <div class="section-label">Where We Operate</div>
+      <div class="section-heading">West Michigan<br>&amp; Surrounding.</div>
+      <div class="area-cities">
+        <span class="city-pill">Grand Rapids</span>
+        <span class="city-pill">Lowell</span>
+        <span class="city-pill">Ionia</span>
+        <span class="city-pill">Rockford</span>
+        <span class="city-pill">Kentwood</span>
+        <span class="city-pill">Wyoming</span>
+        <span class="city-pill">Holland</span>
+        <span class="city-pill">Grandville</span>
+        <span class="city-pill">Byron Center</span>
+        <span class="city-pill">Greenville</span>
+        <span class="city-pill">Belding</span>
+        <span class="city-pill">Saranac</span>
+        <span class="city-pill">+ More</span>
+      </div>
+    </div>
+    <div class="area-right">
+      <div class="area-code-display">616</div>
+      <div class="area-code-label">West Michigan Area Code</div>
+    </div>
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<section class="bottom-cta">
+  <h2>STOP LOOKING AT IT.<br>GET PAID.</h2>
+  <p>That car in the driveway is worth money right now. Call us.</p>
+  <a class="btn-white" href="tel:6168971500">616-897-1500</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2025 616 Junk &nbsp;|&nbsp; Grand Rapids, MI</span>
+  <span>We buy junk cars across West Michigan</span>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>
+  emailjs.init('W1mPmyvwhu73vtMon');
+
+  function submitForm() {
+    const year  = document.getElementById('f-year').value.trim();
+    const make  = document.getElementById('f-make').value.trim();
+    const model = document.getElementById('f-model').value.trim();
+    const cond  = document.getElementById('f-condition').value;
+    const zip   = document.getElementById('f-zip').value.trim();
+    const name  = document.getElementById('f-name').value.trim();
+    const phone = document.getElementById('f-phone').value.trim();
+
+    if (!year || !make || !name || !phone) {
+      alert('Please fill in at least the year, make, your name, and phone number.');
+      return;
+    }
+
+    const btn = document.querySelector('.submit-btn');
+    btn.textContent = 'SENDING...';
+    btn.disabled = true;
+
+    emailjs.send('service_jnyzbk8', 'template_ijop3un', {
+      from_name: name,
+      phone:     phone,
+      car_year:  year,
+      car_make:  make,
+      car_model: model,
+      condition: cond,
+      zip:       zip
+    }).then(() => {
+      document.getElementById('lead-form').style.display = 'none';
+      document.getElementById('success-msg').style.display = 'block';
+    }).catch((err) => {
+      btn.textContent = 'GET MY CASH OFFER →';
+      btn.disabled = false;
+      alert('Something went wrong. Please call us directly at 616-897-1500.');
+      console.error('EmailJS error:', err);
+    });
+  }
+</script>
+
+</body>
+</html>
